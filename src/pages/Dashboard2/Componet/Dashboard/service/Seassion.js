@@ -60,20 +60,22 @@ function Seassion({ service }) {
   //
   useEffect(() => {
     let x = localStorage.getItem("email");
-    setservicedata([]);
-    db.collection("web_user")
-      .doc(x)
-      .collection(service)
-      .get()
-      .then((result) => {
-        if (!result.empty) {
-          result.forEach((d) => {
-            setservicedata((old) => [...old, d.data()]);
-          });
-        } else {
-          setLoadind("Data Not Avalabel");
-        }
-      });
+    if (service) {
+      setservicedata([]);
+      db.collection("web_user")
+        .doc(x)
+        .collection(service)
+        .get()
+        .then((result) => {
+          if (!result.empty) {
+            result.forEach((d) => {
+              setservicedata((old) => [...old, d.data()]);
+            });
+          } else {
+            setLoadind("Data Not Avalabel");
+          }
+        });
+    }
     return () => {
       setLoadind("Loading");
     };

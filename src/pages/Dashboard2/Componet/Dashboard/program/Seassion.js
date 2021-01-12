@@ -60,21 +60,23 @@ function Seassion({ Program }) {
   //
   useEffect(() => {
     let x = localStorage.getItem("email");
-    setservicedata([]);
-    db.collection("web_user")
-      .doc(x)
-      .collection(Program)
-      .get()
-      .then((result) => {
-        if (!result.empty) {
-          result.forEach((d) => {
-            setservicedata((old) => [...old, d.data()]);
-            console.log("sdsdsdsdsd", d.data());
-          });
-        } else {
-          setLoadind("Data Not Avalabel");
-        }
-      });
+    if (Program) {
+      setservicedata([]);
+      db.collection("web_user")
+        .doc(x)
+        .collection(`${Program}`)
+        .get()
+        .then((result) => {
+          if (!result.empty) {
+            result.forEach((d) => {
+              setservicedata((old) => [...old, d.data()]);
+              console.log("sdsdsdsdsd", d.data());
+            });
+          } else {
+            setLoadind("Data Not Avalabel");
+          }
+        });
+    }
     return () => {
       setLoadind("Loading");
     };

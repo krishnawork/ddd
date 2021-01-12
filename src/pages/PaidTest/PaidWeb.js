@@ -147,6 +147,7 @@ class PaidTest extends Component {
   };
 
   openCheckout = (amount, sessions, value, test_id) => {
+    console.log("hari", amount, value, sessions, test_id);
     localStorage.setItem("settesttype", "Paid");
     if (localStorage.getItem("isLoggedIn")) {
       localStorage.setItem("type", value);
