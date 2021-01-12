@@ -80,7 +80,7 @@ function Seassion({ Program }) {
     return () => {
       setLoadind("Loading");
     };
-  }, []);
+  }, [Program]);
 
   //
   return (

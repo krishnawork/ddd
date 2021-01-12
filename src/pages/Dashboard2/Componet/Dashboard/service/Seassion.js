@@ -64,7 +64,7 @@ function Seassion({ service }) {
       setservicedata([]);
       db.collection("web_user")
         .doc(x)
-        .collection(service)
+        .collection(`${service}`)
         .get()
         .then((result) => {
           if (!result.empty) {
@@ -79,7 +79,7 @@ function Seassion({ service }) {
     return () => {
       setLoadind("Loading");
     };
-  }, []);
+  }, [service]);
 
   //
   return (
