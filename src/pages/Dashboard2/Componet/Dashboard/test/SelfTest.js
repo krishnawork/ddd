@@ -60,25 +60,27 @@ function SelfTest({ test }) {
   //
   useEffect(() => {
     let x = localStorage.getItem("email");
-    setselfdata([]);
-    db.collection("web_user")
-      .doc(x)
-      .collection(test)
-      .orderBy("TimeNow", "desc")
-      .get()
-      .then((result) => {
-        if (!result.empty) {
-          result.forEach((d) => {
-            setselfdata((old) => [...old, d.data()]);
-          });
-        } else {
-          setLoadind("Data Not Avalabel");
-        }
-      });
+    if (test) {
+      setselfdata([]);
+      db.collection("web_user")
+        .doc(x)
+        .collection(test)
+        .orderBy("TimeNow", "desc")
+        .get()
+        .then((result) => {
+          if (!result.empty) {
+            result.forEach((d) => {
+              setselfdata((old) => [...old, d.data()]);
+            });
+          } else {
+            setLoadind("Data Not Avalabel");
+          }
+        });
+    }
     return () => {
       setLoadind("Loading");
     };
-  }, []);
+  }, [test]);
 
   //
   return (

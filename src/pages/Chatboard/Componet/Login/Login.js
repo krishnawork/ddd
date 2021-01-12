@@ -50,7 +50,7 @@ function Login() {
       alert("Please Login account");
       history.push("/");
     }
-  }, []);
+  }, [x, history]);
   useEffect(() => {
     auth.onAuthStateChanged((user) => {
       console.log("user", user);
@@ -77,7 +77,7 @@ function Login() {
         setpageload(<LoginPage action={setpageload} />);
       }
     });
-  }, []);
+  }, [x]);
   return (
     <div>
       <div
