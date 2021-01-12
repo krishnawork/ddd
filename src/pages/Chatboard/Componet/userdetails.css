@@ -1,0 +1,12 @@
+.btn1 {
+  padding: 10px 20px;
+  background-color: #005191;
+  color: white;
+  margin: 10px 20px;
+  border: none;
+}
+.btn_container {
+  position: sticky;
+  top: 40px;
+  z-index: 1000;
+}

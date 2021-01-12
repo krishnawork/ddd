@@ -1,0 +1,23 @@
+.text_aria {
+  width: 90%;
+  margin: auto;
+  height: 62vh;
+  border: 1px solid red;
+  overflow: auto;
+  overflow-wrap: break-word;
+}
+.write_chat {
+  position: absolute;
+  left: 10%;
+  bottom: 10px;
+  width: 70%;
+  padding: 2px;
+  border: 1px solid #005191;
+}
+.chat_Submit {
+  position: absolute;
+  right: 12%;
+  background-color: #005191;
+  color: white;
+  bottom: 10px;
+}
